@@ -4,7 +4,8 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Shane Maloney'
 SITENAME = 'samaloney'
-SITEURL = ''
+# SITEURL = 'http://127.0.0.1:8000'
+SITEURL = 'https://samaloney.github.io'
 
 PATH = 'content'
 
@@ -21,24 +22,48 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+AVATAR = 'https://pbs.twimg.com/profile_images/879771897650479104/IW1qXFlU_400x400.jpg'
+SIDEBAR_DIGEST = 'Solar Physics, Programming, Technology'
+TWITTER_USERNAME = 'samaloney'
+
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = (('SunPy', 'http://sunpy.org/'),
+         ('xrayvision', 'http://github.com/sunpy/xrayvision'),
+         ('TCD Astro', 'http://www.tcd.ie/Physics/research/themes/astrophysics/'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('linkedin', 'https://www.linkedin.com/in/samaloney'),
+          ('github', 'https://github.com/samaloney'),
+          ('twitter', 'https://twitter.com/samaloney'))
+
+
+DISPLAY_FOOTER = False
+
+STATIC_PATHS = ['pages/images', 'extra/favicon.ico']
+
+EXTRA_PATH_METADATA = {
+    'extra/favicon.ico': {'path': 'favicon.ico'}
+}
+
+DISPLAY_PAGES_ON_MENU = True
+
+MENUITEMS = (('Home', SITEURL),
+			 ('Blog', '/category/blog.html'),)
+
+PAGES = True
+
+
 
 DEFAULT_PAGINATION = False
 
-TYPOGRIFY = True
+# TYPOGRIFY = True
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
 PLUGINS = ["pelican_publications"]
 
+
 READERS = {'html': None}
 
+THEME = '../pelican-blue'
