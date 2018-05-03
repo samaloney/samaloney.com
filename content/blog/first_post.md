@@ -22,7 +22,7 @@ Enter [Pelican](https://blog.getpelican.com) a python based static site generato
 
 Lets go!
 --------
-So my first step was to create a isolated environment (pyenv and virtualenv) and get Pelican installed
+My first step was to create a isolated environment (pyenv and virtualenv) and get Pelican installed
 
 ```bash
 mkproject -python3 samloney.com
@@ -72,7 +72,7 @@ Next I wanted to add a list of my publications to the site, I could have done th
 
 ```
 
-It turned out the the pelican_publications plugin didn't quite do what I expected/wanted which made the template more complicated then I wanted, a task for the future, it was good enough for the moment.
+It turned out the pelican_publications plugin didn't do what I expected/wanted which made the template more complicated then I wanted, a task for the future, it was good enough for the moment.
 
 Time to Publish
 ---------------
@@ -81,17 +81,17 @@ At this point I figured I might as well try publishing what I had so far so I cr
 ghp-import <path>/<to>/output
 git push orgin gh-pages
 ```
-and it didn't work a quick review of the GitHub Pages docs seem to indicate user pagaes now had to be in the master branch. Second try
+and it didn't work a quick review of the GitHub Pages docs indicated user pages now had to be in the master branch. Second try
 ```bash
 ghp-import -b master <path>/<to>/output
 git push orgin master
 ```
-it worked will kind of, the home page seemed ok, missing some css but every other page was borked. A quick review of browser console indicated issues serving mixed content (http, https) and the links were not being generated correctly. After a bit of playing around I found the causes:
+it worked will kind of, the home page seemed ok, missing some css but every other page was borked. A quick review of browser console indicated issues serving mixed content (http, https) and the links were not generated properly. After a bit of playing around I found the causes:
 
 1. RTFM - from pelican docs `SITEURL` must be full URL with protocol
 2. Also with the theme I was using `SITEURL` had at the start of `pelicanconf.py` and didn't work when set in `publishconf.py`
 
 Success!
 
-The code for the site at this stage can be found [here]()
+The code for the site at this stage is [here](https://github.com/samaloney/samaloney.github.io-src)
 
